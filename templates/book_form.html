@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if book %}Редактировать книгу{% else %}Добавить книгу{% endif %}</title>
+</head>
+<body>
+    <h1>{% if book %}Редактировать книгу{% else %}Добавить книгу{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if book %}Сохранить изменения{% else %}Сохранить{% endif %}</button>
+    </form>
+    <a href="{% url 'home' %}">Назад к списку книг</a>
+</body>
+</html>
